@@ -84,7 +84,7 @@ public class CircleProgressView extends View {
             String temp = "100%";
             //TODO 如果文字宽度超过直径,这边计算有问题
             if (mTextBounds.width() > radius * 2) {
-                mCircleTextSize = getWidth() / temp.length();
+                mCircleTextSize = radius * 2 / temp.length();
                 mTextPaint.setTextSize(mCircleTextSize);
                 mTextPaint.getTextBounds(temp, 0, temp.length(), mTextBounds);
             }
