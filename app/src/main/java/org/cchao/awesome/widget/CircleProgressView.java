@@ -17,6 +17,9 @@ import org.cchao.awesome.R;
  */
 public class CircleProgressView extends View {
 
+    private int mWidth;
+    private int mHeight;
+
     //圆环颜色
     private int mCircleColor;
 
@@ -73,6 +76,37 @@ public class CircleProgressView extends View {
         mTextPaint.setTextSize(mCircleTextSize);
         String temp = "100%";
         mTextPaint.getTextBounds(temp, 0, temp.length(), mTextBounds);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        //根据文本大小确定宽高
+        double desireByTextWidth = getPaddingLeft() + mTextBounds.width() + getPaddingRight() + mCircleWidth * 2;
+        double desireByTextHeight = getPaddingTop() + mTextBounds.height() + getPaddingBottom() + mCircleWidth * 2;
+        double desire = Math.max(desireByTextWidth, desireByTextHeight);
+
+        int specMode = MeasureSpec.getMode(widthMeasureSpec);
+        int specSize = MeasureSpec.getSize(widthMeasureSpec);
+        if (specMode == MeasureSpec.EXACTLY) {
+            mWidth = specSize;
+        } else {
+            if (specMode == MeasureSpec.AT_MOST) {
+                mWidth = (int)desire;
+            }
+        }
+
+        specMode = MeasureSpec.getMode(heightMeasureSpec);
+        specSize = MeasureSpec.getSize(heightMeasureSpec);
+        if (specMode == MeasureSpec.EXACTLY) {
+            mHeight = specSize;
+        } else {
+            if (specMode == MeasureSpec.AT_MOST) {
+                mHeight = (int)desire;
+            }
+        }
+
+        setMeasuredDimension(mWidth, mHeight);
     }
 
     @Override
