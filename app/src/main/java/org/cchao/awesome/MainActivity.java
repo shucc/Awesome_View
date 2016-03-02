@@ -18,5 +18,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CircleActivity.class));
             }
         });
+        this.findViewById(R.id.activity_main_btn_sideslip).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SideslipActivity.class));
+            }
+        });
     }
 }

@@ -40,7 +40,7 @@
         circle:circleProgressColor="@color/colorAccent"
         circle:circleWidth="8dp"
         circle:circleTextColor="@color/colorAccent"
-        circle:circleTextSize="45sp"/>
+        circle:circleTextSize="115sp"/>
 
     <org.cchao.awesome.widget.CircleProgressView
         android:id="@+id/activity_circle_four"
@@ -51,6 +51,6 @@
         circle:circleProgressColor="@color/colorAccent"
         circle:circleWidth="8dp"
         circle:circleTextColor="@color/colorAccent"
-        circle:circleTextSize="66sp"/>
+        circle:circleTextSize="115sp"/>
 
 </LinearLayout>

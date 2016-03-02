@@ -138,7 +138,7 @@ public class CircleProgressView extends View {
         canvas.drawCircle(center, center, radius, mPaint);
         mPaint.setColor(mCircleProgressColor);
         int degree = mProgress * 360 / 100;
-        canvas.drawArc(rectF, -90, degree, false, mPaint);
+        canvas.drawArc(rectF, 0, degree, false, mPaint);
 
         mTextPaint.setColor(mCircleProgressColor);
         float textWidth = mTextPaint.measureText(mProgress + "%");
