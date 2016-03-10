@@ -177,43 +177,59 @@ public class CircleProgressView extends View {
         }
     }
 
-    public int getCircleColor() {
+    public int getmCicrcleStartAngle() {
+        return mCicrcleStartAngle;
+    }
+
+    public void setmCicrcleStartAngle(int mCicrcleStartAngle) {
+        this.mCicrcleStartAngle = mCicrcleStartAngle;
+    }
+
+    public int getmCircleAngle() {
+        return mCircleAngle;
+    }
+
+    public void setmCircleAngle(int mCircleAngle) {
+        this.mCircleAngle = mCircleAngle;
+    }
+
+    public int getmCircleColor() {
         return mCircleColor;
     }
 
-    public void setCircleColor(int mCircleColor) {
+    public void setmCircleColor(int mCircleColor) {
         this.mCircleColor = mCircleColor;
     }
 
-    public int getCircleProgressColor() {
+    public int getmCircleProgressColor() {
         return mCircleProgressColor;
     }
 
-    public void setCircleProgressColor(int mCircleProgressColor) {
+    public void setmCircleProgressColor(int mCircleProgressColor) {
         this.mCircleProgressColor = mCircleProgressColor;
     }
 
-    public int getCircleTextColor() {
+    public int getmCircleTextColor() {
         return mCircleTextColor;
     }
 
-    public void setCircleTextColor(int mCircleTextColor) {
+    public void setmCircleTextColor(int mCircleTextColor) {
         this.mCircleTextColor = mCircleTextColor;
     }
 
-    public int getCircleTextSize() {
+    public int getmCircleTextSize() {
         return mCircleTextSize;
     }
 
-    public void setCircleTextSize(int mCircleTextSize) {
+    public void setmCircleTextSize(int mCircleTextSize) {
         this.mCircleTextSize = mCircleTextSize;
     }
 
-    public int getCircleWidth() {
+    public int getmCircleWidth() {
         return mCircleWidth;
     }
 
-    public void setCircleWidth(int mCircleWidth) {
+    public void setmCircleWidth(int mCircleWidth) {
         this.mCircleWidth = mCircleWidth;
     }
 }
