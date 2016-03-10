@@ -3,6 +3,7 @@ package org.cchao.awesome.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -35,6 +36,12 @@ public class CircleProgressView extends View {
     //进度显示颜色
     private int mCircleTextColor;
 
+    //进度条圆环总角度
+    private int mCircleAngle;
+
+    //进度条开始角度
+    private int mCicrcleStartAngle;
+
     private Paint mPaint;
 
     private Paint mTextPaint;
@@ -46,6 +53,8 @@ public class CircleProgressView extends View {
 
     //是否计算文字大小
     private boolean isCalculate = false;
+
+    private RectF mRectF;
 
     public CircleProgressView(Context context) {
         this(context, null);
@@ -59,21 +68,24 @@ public class CircleProgressView extends View {
         super(context, atts, defStyle);
 
         TypedArray typedArray = context.getTheme().obtainStyledAttributes(atts, R.styleable.CircleProgressView, defStyle, 0);
-        mCircleColor = typedArray.getColor(R.styleable.CircleProgressView_circleColor, defStyle);
-        mCircleProgressColor = typedArray.getColor(R.styleable.CircleProgressView_circleProgressColor, defStyle);
+        mCircleColor = typedArray.getColor(R.styleable.CircleProgressView_circleColor, Color.TRANSPARENT);
+        mCircleProgressColor = typedArray.getColor(R.styleable.CircleProgressView_circleProgressColor, Color.BLUE);
         //进度条宽度默认设置为5dp
         mCircleWidth = typedArray.getDimensionPixelSize(R.styleable.CircleProgressView_circleWidth, (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics()));
         //进度文本显示大小默认为16sp
         mCircleTextSize = typedArray.getDimensionPixelSize(R.styleable.CircleProgressView_circleTextSize, (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
-        mCircleTextColor = typedArray.getColor(R.styleable.CircleProgressView_circleTextColor, defStyle);
+        mCircleTextColor = typedArray.getColor(R.styleable.CircleProgressView_circleTextColor, Color.BLACK);
+        mCircleAngle = typedArray.getInteger(R.styleable.CircleProgressView_circleAngle, 360);
+        mCicrcleStartAngle = typedArray.getInteger(R.styleable.CircleProgressView_circleStartAngle, 0);
         typedArray.recycle();
 
         mPaint = new Paint();
         mTextPaint = new Paint();
         mTextBounds = new Rect();
         mTextPaint.setTextSize(mCircleTextSize);
+        //设置文本最大宽度，即100%的时候
         String temp = "100%";
         mTextPaint.getTextBounds(temp, 0, temp.length(), mTextBounds);
     }
@@ -114,9 +126,10 @@ public class CircleProgressView extends View {
         int center = getWidth() / 2;
         int radius = center - mCircleWidth / 2;
 
+        //计算一次文字大小
         if (!isCalculate) {
             String temp = "100%";
-            //将文本对角线的一半与半径比较
+            //将文本rect对角线的一半与半径比较
             double radiusPow = Math.pow(radius - mCircleWidth / 2, 2);
             double otherPow = Math.pow((double)mTextBounds.width()/2, 2) + Math.pow((double)mTextBounds.height()/2, 2);
             //如果文本宽度超出内圆，不断减小文字大小
@@ -127,18 +140,20 @@ public class CircleProgressView extends View {
                 mTextPaint.getTextBounds(temp, 0, temp.length(), mTextBounds);
             }
             isCalculate = true;
-        }
 
+
+        }
         mPaint.setStrokeWidth(mCircleWidth);
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
-        RectF rectF = new RectF(center - radius, center - radius, center + radius, center + radius);
+        mRectF = new RectF(center - radius, center - radius, center + radius, center + radius);
 
         mPaint.setColor(mCircleColor);
-        canvas.drawCircle(center, center, radius, mPaint);
+        canvas.drawArc(mRectF, mCicrcleStartAngle, mCircleAngle, false, mPaint);
+        //canvas.drawCircle(center, center, radius, mPaint);
         mPaint.setColor(mCircleProgressColor);
-        int degree = mProgress * 360 / 100;
-        canvas.drawArc(rectF, 0, degree, false, mPaint);
+        int degree = mProgress * mCircleAngle / 100;
+        canvas.drawArc(mRectF, mCicrcleStartAngle, degree, false, mPaint);
 
         mTextPaint.setColor(mCircleProgressColor);
         float textWidth = mTextPaint.measureText(mProgress + "%");

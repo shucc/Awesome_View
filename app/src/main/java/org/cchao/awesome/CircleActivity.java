@@ -11,6 +11,8 @@ public class CircleActivity extends AppCompatActivity {
     private CircleProgressView mSecondView;
     private CircleProgressView mThirdView;
     private CircleProgressView mFourView;
+    private CircleProgressView mFiveView;
+    private CircleProgressView mSixView;
 
     private int mProgress = 0;
 
@@ -23,6 +25,8 @@ public class CircleActivity extends AppCompatActivity {
         mSecondView = (CircleProgressView) findViewById(R.id.activity_circle_second);
         mThirdView = (CircleProgressView) findViewById(R.id.activity_circle_third);
         mFourView = (CircleProgressView) findViewById(R.id.activity_circle_four);
+        mFiveView = (CircleProgressView) findViewById(R.id.activity_circle_five);
+        mSixView = (CircleProgressView) findViewById(R.id.activity_circle_six);
 
         new Thread(new Runnable() {
             @Override
@@ -33,6 +37,8 @@ public class CircleActivity extends AppCompatActivity {
                     mSecondView.setProgress(mProgress);
                     mThirdView.setProgress(mProgress);
                     mFourView.setProgress(mProgress);
+                    mFiveView.setProgress(mProgress);
+                    mSixView.setProgress(mProgress);
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:circle="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,48 +9,90 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <org.cchao.awesome.widget.CircleProgressView
-        android:id="@+id/activity_circle_first"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
 
-        circle:circleColor="@android:color/transparent"
-        circle:circleProgressColor="@color/colorPrimary"
-        circle:circleWidth="8dp"
-        circle:circleTextColor="@color/colorAccent"
-        circle:circleTextSize="20sp"/>
+        <org.cchao.awesome.widget.CircleProgressView
+            android:id="@+id/activity_circle_first"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
 
-    <org.cchao.awesome.widget.CircleProgressView
-        android:id="@+id/activity_circle_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            circle:circleColor="@android:color/transparent"
+            circle:circleProgressColor="@color/colorPrimary"
+            circle:circleWidth="8dp"
+            circle:circleTextColor="@color/colorAccent"
+            circle:circleTextSize="20sp"/>
 
-        circle:circleColor="@color/colorPrimary"
-        circle:circleProgressColor="@color/colorAccent"
-        circle:circleWidth="8dp"
-        circle:circleTextColor="@color/colorAccent"
-        circle:circleTextSize="30sp"/>
+        <org.cchao.awesome.widget.CircleProgressView
+            android:id="@+id/activity_circle_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <org.cchao.awesome.widget.CircleProgressView
-        android:id="@+id/activity_circle_third"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+            circle:circleColor="@color/colorPrimary"
+            circle:circleProgressColor="@color/colorAccent"
+            circle:circleWidth="8dp"
+            circle:circleTextColor="@color/colorAccent"
+            circle:circleTextSize="30sp"/>
 
-        circle:circleColor="@color/colorPrimary"
-        circle:circleProgressColor="@color/colorAccent"
-        circle:circleWidth="8dp"
-        circle:circleTextColor="@color/colorAccent"
-        circle:circleTextSize="115sp"/>
+        <org.cchao.awesome.widget.CircleProgressView
+            android:id="@+id/activity_circle_third"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
 
-    <org.cchao.awesome.widget.CircleProgressView
-        android:id="@+id/activity_circle_four"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+            circle:circleColor="@color/colorPrimary"
+            circle:circleProgressColor="@color/colorAccent"
+            circle:circleWidth="8dp"
+            circle:circleTextColor="@color/colorAccent"
+            circle:circleTextSize="115sp"/>
 
-        circle:circleColor="@color/colorPrimary"
-        circle:circleProgressColor="@color/colorAccent"
-        circle:circleWidth="8dp"
-        circle:circleTextColor="@color/colorAccent"
-        circle:circleTextSize="115sp"/>
+        <org.cchao.awesome.widget.CircleProgressView
+            android:id="@+id/activity_circle_four"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            circle:circleColor="@color/colorPrimary"
+            circle:circleProgressColor="@color/colorAccent"
+            circle:circleWidth="8dp"
+            circle:circleTextColor="@color/colorAccent"
+            circle:circleTextSize="115sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <org.cchao.awesome.widget.CircleProgressView
+            android:id="@+id/activity_circle_five"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            circle:circleColor="@color/colorPrimary"
+            circle:circleProgressColor="@color/colorAccent"
+            circle:circleWidth="8dp"
+            circle:circleTextColor="@color/colorAccent"
+            circle:circleTextSize="115sp"
+            circle:circleAngle="315"
+            circle:circleStartAngle="112"/>
+
+        <org.cchao.awesome.widget.CircleProgressView
+            android:id="@+id/activity_circle_six"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            circle:circleColor="@color/colorPrimary"
+            circle:circleProgressColor="@color/colorAccent"
+            circle:circleWidth="8dp"
+            circle:circleTextColor="@color/colorAccent"
+            circle:circleTextSize="115sp"
+            circle:circleAngle="315"
+            circle:circleStartAngle="112"/>
+
+    </LinearLayout>
 
 </LinearLayout>
