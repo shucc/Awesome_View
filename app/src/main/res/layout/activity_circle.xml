@@ -87,7 +87,7 @@
 
             circle:circleColor="@color/colorPrimary"
             circle:circleProgressColor="@color/colorAccent"
-            circle:circleWidth="8dp"
+            circle:circleWidth="20dp"
             circle:circleTextColor="@color/colorAccent"
             circle:circleTextSize="115sp"
             circle:circleAngle="315"

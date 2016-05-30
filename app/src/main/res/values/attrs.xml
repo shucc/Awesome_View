@@ -10,5 +10,10 @@
         <attr name="circleStartAngle" format="integer"/>
         <attr name="circleAngle" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="HorizontalProgressView">
+        <attr name="horizontalColor" format="color" />
+        <attr name="horizontalProgressColor" format="color" />
+    </declare-styleable>
     
 </resources>

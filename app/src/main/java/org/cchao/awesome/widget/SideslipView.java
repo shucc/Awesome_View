@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import org.cchao.awesome.LogUtil;
+
 /**
  * Created by chenchao on 16/3/1.
  */
@@ -62,6 +64,7 @@ public class SideslipView extends LinearLayout {
 
             @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
+                LogUtil.i("1");
                 if (child == mMainView) {
                     if (left > 0) {
                         return 0;
@@ -80,12 +83,14 @@ public class SideslipView extends LinearLayout {
 
             @Override
             public int getViewHorizontalDragRange(View child) {
+                LogUtil.i("2");
                 return mSideWidth;
             }
 
             @Override
             public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
                 super.onViewPositionChanged(changedView, left, top, dx, dy);
+                LogUtil.i("3");
                 if (changedView == mMainView) {
                     mSideView.offsetLeftAndRight(dx);
                 } else {
@@ -96,6 +101,7 @@ public class SideslipView extends LinearLayout {
 
             @Override
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
+                LogUtil.i("4");
                 if (releasedChild == mMainView) {
                     if (status == Status.Close && -mMainView.getLeft() > mSideWidth / DAMPING) {
                         open();

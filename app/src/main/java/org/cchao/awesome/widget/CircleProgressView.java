@@ -144,6 +144,7 @@ public class CircleProgressView extends View {
 
         }
         mPaint.setStrokeWidth(mCircleWidth);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
         mRectF = new RectF(center - radius, center - radius, center + radius, center + radius);

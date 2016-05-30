@@ -24,5 +24,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SideslipActivity.class));
             }
         });
+        this.findViewById(R.id.activity_main_btn_horizontal_progress).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HorizontalActivity.class));
+            }
+        });
     }
 }

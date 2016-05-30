@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CircleActivity" />
-        <activity android:name=".SideslipActivity"></activity>
+        <activity android:name=".SideslipActivity" />
+        <activity android:name=".HorizontalActivity"></activity>
     </application>
 
 </manifest>
