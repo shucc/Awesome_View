@@ -34,6 +34,9 @@ public class SwitchButton extends View {
     //是否选中
     private boolean isSelect = false;
 
+    //是否滑动中
+    private boolean isScroll = false;
+
     //是否有动画
     private boolean isAnim = false;
 
@@ -42,6 +45,8 @@ public class SwitchButton extends View {
 
     //重绘次数
     private int paintTimes = 0;
+
+    private OnSwitchChangeListener onSwitchChangeListener;
 
     public SwitchButton(Context context) {
         this(context, null);
@@ -117,6 +122,7 @@ public class SwitchButton extends View {
         } else {
             paintTimes = 0;
             isAnim = false;
+            isScroll = false;
         }
     }
 
@@ -127,9 +133,15 @@ public class SwitchButton extends View {
                 LogUtil.i("Down");
                 break;
             case MotionEvent.ACTION_UP:
-                isSelect = !isSelect;
-                isAnim = true;
-                postInvalidate();
+                if (!isScroll) {
+                    isSelect = !isSelect;
+                    isAnim = true;
+                    isScroll = true;
+                    postInvalidate();
+                    if (onSwitchChangeListener != null) {
+                        onSwitchChangeListener.onChange(isSelect);
+                    }
+                }
                 break;
             case MotionEvent.ACTION_MOVE:
                 LogUtil.i(event.getX() + "-->" + event.getY());
@@ -140,12 +152,60 @@ public class SwitchButton extends View {
         return true;
     }
 
-    public boolean isSelect() {
+    public void setOnSwitchChangeListener(OnSwitchChangeListener onSwitchChangeListener) {
+        this.onSwitchChangeListener = onSwitchChangeListener;
+    }
+
+    public boolean isChecked() {
         return isSelect;
     }
 
-    public void setSelect(boolean select) {
+    public void setCheck(boolean select) {
         isSelect = select;
         postInvalidate();
+    }
+
+    public int getButtonColor() {
+        return buttonColor;
+    }
+
+    public void setButtonColor(int buttonColor) {
+        this.buttonColor = buttonColor;
+    }
+
+    public int getButtonPadding() {
+        return buttonPadding;
+    }
+
+    public void setButtonPadding(int buttonPadding) {
+        this.buttonPadding = buttonPadding;
+    }
+
+    public int getNormalColor() {
+        return normalColor;
+    }
+
+    public void setNormalColor(int normalColor) {
+        this.normalColor = normalColor;
+    }
+
+    public int getSelectColor() {
+        return selectColor;
+    }
+
+    public void setSelectColor(int selectColor) {
+        this.selectColor = selectColor;
+    }
+
+    public int getSwitchRate() {
+        return switchRate;
+    }
+
+    public void setSwitchRate(int switchRate) {
+        this.switchRate = switchRate;
+    }
+
+    public interface OnSwitchChangeListener {
+        void onChange(boolean isChecked);
     }
 }

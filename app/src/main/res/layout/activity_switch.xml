@@ -11,6 +11,7 @@
         android:layout_height="30dp" />
 
     <org.cchao.awesome.widget.SwitchButton
+        android:id="@+id/activity_switchbutton"
         android:layout_margin="16dp"
         android:layout_width="60dp"
         android:layout_height="30dp"
