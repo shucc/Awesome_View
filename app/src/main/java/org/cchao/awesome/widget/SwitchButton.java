@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
+import org.cchao.awesome.LogUtil;
 import org.cchao.awesome.R;
 
 public class SwitchButton extends View {
@@ -79,8 +80,14 @@ public class SwitchButton extends View {
 
         rectF = new RectF(0, 0, width, height);
         if (isSelect) {
-            paint.setColor(selectColor);
-            canvas.drawRoundRect(rectF, height / 2, height / 2, paint);
+            //移动过后再改变背景色
+            if (paintTimes < switchRate && isAnim) {
+                paint.setColor(normalColor);
+                canvas.drawRoundRect(rectF, height / 2, height / 2, paint);
+            } else {
+                paint.setColor(selectColor);
+                canvas.drawRoundRect(rectF, height / 2, height / 2, paint);
+            }
             paint.setColor(buttonColor);
             if (isAnim) {
                 canvas.drawCircle(buttonRadius + buttonPadding + animEach * paintTimes, buttonRadius + buttonPadding, buttonRadius, paint);
@@ -88,8 +95,13 @@ public class SwitchButton extends View {
                 canvas.drawCircle(width - buttonRadius - buttonPadding, buttonRadius + buttonPadding, buttonRadius, paint);
             }
         } else {
-            paint.setColor(normalColor);
-            canvas.drawRoundRect(rectF, height / 2, height / 2, paint);
+            if (paintTimes < switchRate && isAnim) {
+                paint.setColor(selectColor);
+                canvas.drawRoundRect(rectF, height / 2, height / 2, paint);
+            } else {
+                paint.setColor(normalColor);
+                canvas.drawRoundRect(rectF, height / 2, height / 2, paint);
+            }
             paint.setColor(buttonColor);
             if (isAnim) {
                 canvas.drawCircle(width - buttonRadius - buttonPadding - animEach * paintTimes, buttonRadius + buttonPadding, buttonRadius, paint);
@@ -109,13 +121,23 @@ public class SwitchButton extends View {
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            isSelect = !isSelect;
-            isAnim = true;
-            postInvalidate();
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                LogUtil.i("Down");
+                break;
+            case MotionEvent.ACTION_UP:
+                isSelect = !isSelect;
+                isAnim = true;
+                postInvalidate();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                LogUtil.i(event.getX() + "-->" + event.getY());
+                break;
+            default:
+                break;
         }
-        return false;
+        return true;
     }
 
     public boolean isSelect() {
