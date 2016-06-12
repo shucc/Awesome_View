@@ -30,5 +30,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, HorizontalActivity.class));
             }
         });
+        this.findViewById(R.id.activity_main_btn_horizontal_switch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SwitchActivity.class));
+            }
+        });
     }
 }

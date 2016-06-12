@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swith="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.cchao.awesome.widget.SwitchButton
+        android:layout_margin="16dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp" />
+
+    <org.cchao.awesome.widget.SwitchButton
+        android:layout_margin="16dp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+
+        swith:normalColor="@android:color/darker_gray"
+        swith:selectColor="#7F3F51B5"
+        swith:buttonColor="@color/colorPrimary"
+        swith:buttonPadding="2dp"
+        swith:switchRate="20"/>
+
+</LinearLayout>
