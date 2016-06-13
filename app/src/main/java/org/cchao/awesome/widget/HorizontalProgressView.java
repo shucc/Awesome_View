@@ -14,6 +14,7 @@ import org.cchao.awesome.R;
 /**
  * Created by chenchao on 16/5/30.
  * cc@cchao.org
+ * 横向进度条
  */
 public class HorizontalProgressView extends View {
 

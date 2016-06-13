@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.cchao.awesome.widget.CodesView
+        android:background="@android:color/white"
+        android:layout_margin="16dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+
+        app:codeTextColor="@color/colorPrimary"
+        app:codeTextSize="24sp"
+        app:codeTextNum="4"
+        app:codeLineColor="@color/colorPrimaryDark"
+        app:codeLineSize="1dp"
+        app:codeLineNum="3"
+        app:codePointColor="@android:color/black"
+        app:codePointNum="100"/>
+
+</LinearLayout>

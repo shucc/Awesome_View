@@ -15,6 +15,8 @@ import org.cchao.awesome.R;
 
 /**
  * Created by chenchao on 16/2/17.
+ * cc@cchao.org
+ * 圆形进度条
  */
 public class CircleProgressView extends View {
 

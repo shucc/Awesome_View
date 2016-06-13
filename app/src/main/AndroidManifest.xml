@@ -18,7 +18,8 @@
         <activity android:name=".CircleActivity" />
         <activity android:name=".SideslipActivity" />
         <activity android:name=".HorizontalActivity" />
-        <activity android:name=".SwitchActivity"></activity>
+        <activity android:name=".SwitchActivity" />
+        <activity android:name=".CodesActivity" />
     </application>
 
 </manifest>

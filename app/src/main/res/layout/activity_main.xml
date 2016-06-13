@@ -27,8 +27,14 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/activity_main_btn_horizontal_switch"
+        android:id="@+id/activity_main_btn_switch"
         android:text="Switch控件"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/activity_main_btn_codes"
+        android:text="验证码"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

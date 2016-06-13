@@ -14,6 +14,11 @@ import android.view.View;
 import org.cchao.awesome.LogUtil;
 import org.cchao.awesome.R;
 
+/**
+ * Created by chenchao on 16/6/12.
+ * cc@cchao.org
+ * 开关按钮
+ */
 public class SwitchButton extends View {
 
     //选中时背景色
