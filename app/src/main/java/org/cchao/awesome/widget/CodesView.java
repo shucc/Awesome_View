@@ -172,4 +172,68 @@ public class CodesView extends View {
     public String getCode() {
         return code;
     }
+
+    public int getCodeTextColor() {
+        return codeTextColor;
+    }
+
+    public void setCodeTextColor(int codeTextColor) {
+        this.codeTextColor = codeTextColor;
+    }
+
+    public int getCodeTextNum() {
+        return codeTextNum;
+    }
+
+    public void setCodeTextNum(int codeTextNum) {
+        this.codeTextNum = codeTextNum;
+    }
+
+    public int getCodeTextSize() {
+        return codeTextSize;
+    }
+
+    public void setCodeTextSize(int codeTextSize) {
+        this.codeTextSize = codeTextSize;
+    }
+
+    public int getLineColor() {
+        return lineColor;
+    }
+
+    public void setLineColor(int lineColor) {
+        this.lineColor = lineColor;
+    }
+
+    public int getLineNum() {
+        return lineNum;
+    }
+
+    public void setLineNum(int lineNum) {
+        this.lineNum = lineNum;
+    }
+
+    public int getLineSize() {
+        return lineSize;
+    }
+
+    public void setLineSize(int lineSize) {
+        this.lineSize = lineSize;
+    }
+
+    public int getPointColor() {
+        return pointColor;
+    }
+
+    public void setPointColor(int pointColor) {
+        this.pointColor = pointColor;
+    }
+
+    public int getPointNum() {
+        return pointNum;
+    }
+
+    public void setPointNum(int pointNum) {
+        this.pointNum = pointNum;
+    }
 }

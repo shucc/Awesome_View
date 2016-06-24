@@ -48,8 +48,14 @@ public class SwitchButton extends View {
     private Paint paint;
     private RectF rectF;
 
+    private int width = 0;
+    private int height = 0;
+
     //重绘次数
     private int paintTimes = 0;
+
+    private float buttonRadius = 0;
+    private float animEach = 0;
 
     private OnSwitchChangeListener onSwitchChangeListener;
 
@@ -79,16 +85,16 @@ public class SwitchButton extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        int width = getWidth();
-        int height = getHeight();
-        //选择按钮半径
-        float buttonRadius = height - buttonPadding * 2 >> 1;
-        //动画要移动总距离
-        float animDistance = width - buttonRadius * 2 - buttonPadding * 2;
-        //每次移动距离
-        float animEach = animDistance / switchRate;
+        if (width == 0) {
+            width = getWidth();
+            height = getHeight();
+            rectF = new RectF(0, 0, width, height);
 
-        rectF = new RectF(0, 0, width, height);
+            //选择按钮半径
+            buttonRadius = height - buttonPadding * 2 >> 1;
+            //每次移动距离
+            animEach = (width - buttonRadius * 2 - buttonPadding * 2) / switchRate;
+        }
         if (isSelect) {
             //移动过后再改变背景色
             if (paintTimes < switchRate && isAnim) {
