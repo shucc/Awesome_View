@@ -42,5 +42,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CodesActivity.class));
             }
         });
+        this.findViewById(R.id.activity_main_btn_pie_chart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PieChartActivity.class));
+            }
+        });
     }
 }

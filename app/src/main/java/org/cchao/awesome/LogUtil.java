@@ -8,8 +8,7 @@ import android.util.Log;
  */
 public class LogUtil {
 
-    public static void i(String content) {
-        Log.i("awesome", content);
+    public static void i(Object content) {
+        Log.i("awesome", String.valueOf(content));
     }
-
 }

@@ -38,4 +38,8 @@
         <attr name="codePointColor" format="color" />
         <attr name="codePointNum" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="RadarView">
+        <attr name="titleTextSize" format="dimension" />
+    </declare-styleable>
 </resources>
